@@ -1,12 +1,31 @@
-import PostForm from "./PostForm"
-import { useState } from 'react'
+import PostsList from "./PostsList"
+import { useEffect, useState } from "react"
+import axios from "axios"
+
+interface Post {
+  _id: string,
+  title: string,
+  content: string,
+  author: string
+}
 
 function App() {
-  const [refresh, setRefresh] = useState(0);
+  const [items, setItems] = useState<string[]>([])
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      console.log('useEffect')
+      const response = await axios.get<Post[]>('http://localhost:3060/posts')
+      console.log(response.data)
+      setItems(response.data.map((item) => item.title))
+    }
+    fetchItems()
+  }, [])
+
+  console.log('App rendered')
   return (
     <div>
-      <PostForm />
-      <button className='btn btn-primary mt-3' onClick={() => { setRefresh(refresh + 1) }}>render</button>
+      <PostsList items={items} title="Posts" onItemSelected={() => { }} />
     </div>
   )
 }
