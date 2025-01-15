@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-interface PostsListProps {
+interface ItemsListProps {
     title: string,
     items: string[],
     onItemSelected: (index: number) => void
 }
 
-function PostsList({ title, items, onItemSelected }: PostsListProps) {
+function ItemsList({ title, items, onItemSelected }: ItemsListProps) {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [render, setRender] = useState(0);
 
@@ -51,4 +51,4 @@ function PostsList({ title, items, onItemSelected }: PostsListProps) {
 
 }
 
-export default PostsList;
+export default ItemsList;
