@@ -64,7 +64,7 @@ const RegistrationForm: FC = () => {
                     justifyContent: 'center',
                     gap: '5px'
                 }}>
-                    <h2 style={{ alignSelf: 'center' }}>Registration Form</h2>
+                    <h2 style={{ alignSelf: 'center' }}>Registration Form Prod</h2>
                     <img style={{ width: '200px', height: '200px', alignSelf: 'center' }}
                         src={selectedImage ? URL.createObjectURL(selectedImage) : avatar}
                     >
